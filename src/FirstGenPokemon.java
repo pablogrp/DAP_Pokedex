@@ -37,4 +37,16 @@ public class FirstGenPokemon implements Pokemon {
     public String getMechanic() {
         return mechanic;
     }
+
+    public void show() {
+        System.out.println("Nombre: " + name);
+        System.out.println("Sprite: " + sprite);
+        System.out.println("Tipos: " + String.join(", ", types));
+        System.out.println("Mecánica: " + mechanic);
+        System.out.println("Estadísticas (HP, Ataque, Defensa, Ataque Especial, Defensa Especial, Velocidad):");
+        for (int stat : stats) {
+            System.out.print(stat + " ");
+        }
+        System.out.println();
+    }
 }

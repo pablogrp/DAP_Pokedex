@@ -9,6 +9,9 @@ public class FirstGenFactory implements PokemonFactory {
         };
     }
 
+    public void createPokemon(String name, String sprite, int[] stats, String[] types, String mechanic) {
+    }
+
     @Override
     public Pokeball[] createPokeballs() {
         return new Pokeball[] {
@@ -18,6 +21,9 @@ public class FirstGenFactory implements PokemonFactory {
         };
     }
 
+    public void createPokeball(String name, String sprite, String effect, int price) {
+    }
+
     @Override
     public Berry[] createBerrys() {
         return new FirstGenBerry[] {
@@ -25,5 +31,8 @@ public class FirstGenFactory implements PokemonFactory {
                 new FirstGenBerry("Sitrus Berry", "sitrusberry.png", "Restores 30 HP when HP drops to half or less.", 6),
                 new FirstGenBerry("Lum Berry", "lumberry.png", "Cures any status conditions.", 8)
         };
+    }
+
+    public void createBerry(String name, String sprite, String effect, int growthTime) {
     }
 }

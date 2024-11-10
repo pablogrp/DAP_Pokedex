@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DAP_Pokedex.iml" filepath="$PROJECT_DIR$/DAP_Pokedex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/DAP_Final.iml" filepath="$PROJECT_DIR$/.idea/DAP_Final.iml" />
     </modules>
   </component>
 </project>

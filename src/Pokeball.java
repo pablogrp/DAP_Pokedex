@@ -4,4 +4,5 @@ public interface Pokeball {
     String getEffect();
     int getPrice();
     void show();
+
 }

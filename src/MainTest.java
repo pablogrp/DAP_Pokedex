@@ -58,11 +58,7 @@ public class MainTest {
             for (String berryName : firstGenBerries) {
                 System.out.println(berryName);
             }
-
-
-
-
-
+            System.out.println("Elige una berry de la lista: ");
 
 
         } catch (Exception e) {

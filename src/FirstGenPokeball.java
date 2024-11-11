@@ -30,4 +30,12 @@ public class FirstGenPokeball implements Pokeball {
     public int getPrice() {
         return price;
     }
+
+    @Override
+    public void show() {
+        System.out.println("Nombre: " + name);
+        System.out.println("Sprite: " + sprite);
+        System.out.println("Efecto: " + effect);
+        System.out.println("Precio: " + price);
+    }
 }

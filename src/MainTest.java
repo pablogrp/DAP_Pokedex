@@ -9,8 +9,10 @@ public class MainTest {
         PokeApiClient pokeApiClient = new PokeApiClient(client, gson);
 
         try {
+
+
             // Obtener todos los nombres de los Pokémon de la primera generación
-            List<String> firstGenPokemonNames = pokeApiClient.getAllPokemonNames(0, 151);
+            List<String> firstGenPokemonNames = pokeApiClient.getAllPokemonNames(1);
             System.out.println("Nombres de Pokemons de la primera generacion:");
             for (String pokemonName : firstGenPokemonNames) {
                 System.out.println(pokemonName);
@@ -18,6 +20,7 @@ public class MainTest {
             System.out.println("Elige un pokemon de la lista: ");
             String pokemon = System.console().readLine();
 
+            // Seteamos los stats y tipos del pokemon
             String[] pokemonData = pokeApiClient.getPokemonData(pokemon);
             int[] stats = new int[6];
             for (int i = 2; i < 8; i++) {
@@ -25,16 +28,40 @@ public class MainTest {
             }
             String[] types = pokemonData[8].split(",");
 
-
+            // CREACION DE LA FABRICA DE POKEMON -> FirstGenFactory
             // ESTA SERIA LA MANERA CORRECTA
             PokemonFactory firstGenFactory = new FirstGenFactory();
             Pokemon pokemon1 = firstGenFactory.createPokemon(pokemonData[0], pokemonData[1], stats ,types, pokemonData[9]);
 //            Pokeball pokeball1 = firstGenFactory.createPokeball();
 //            Berry berry1 = firstGenFactory.createBerry();
 
-//            FirstGenFactory factory = new FirstGenFactory();
-//            FirstGenPokemon pokemon1 = new FirstGenPokemon(pokemonData[0], pokemonData[1], stats ,types, pokemonData[9]);
             pokemon1.show();
+
+
+
+
+
+//            List<String> firtstGenPokeballs = pokeApiClient.getAllPokeballNames(5);
+//            System.out.println("\nNombres de pokeballs de la primera generacion:");
+//            for (String pokeballName : firtstGenPokeballs) {
+//                System.out.println(pokeballName);
+//            }
+//            System.out.println("Elige una pokeball de la lista: ");
+//            String pokeball = System.console().readLine();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
               // Obtener los datos de todos los Pokémon
 //            String[][] allPokemonData = pokeApiClient.getAllPokemonData(0, 151);

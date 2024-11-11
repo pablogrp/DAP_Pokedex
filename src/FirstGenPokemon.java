@@ -38,6 +38,7 @@ public class FirstGenPokemon implements Pokemon {
         return mechanic;
     }
 
+    @Override
     public void show() {
         System.out.println("Nombre: " + name);
         System.out.println("Sprite: " + sprite);

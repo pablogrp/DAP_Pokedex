@@ -27,14 +27,13 @@ public class MainTest {
 
 
             // ESTA SERIA LA MANERA CORRECTA
-//            PokemonFactory firstGenFactory = new FirstGenFactory();
-//            Pokemon pokemon1 = firstGenFactory.createPokemon();
+            PokemonFactory firstGenFactory = new FirstGenFactory();
+            Pokemon pokemon1 = firstGenFactory.createPokemon(pokemonData[0], pokemonData[1], stats ,types, pokemonData[9]);
 //            Pokeball pokeball1 = firstGenFactory.createPokeball();
 //            Berry berry1 = firstGenFactory.createBerry();
 
-
-            FirstGenFactory factory = new FirstGenFactory();
-            FirstGenPokemon pokemon1 = new FirstGenPokemon(pokemonData[0], pokemonData[1], stats ,types, pokemonData[9]);
+//            FirstGenFactory factory = new FirstGenFactory();
+//            FirstGenPokemon pokemon1 = new FirstGenPokemon(pokemonData[0], pokemonData[1], stats ,types, pokemonData[9]);
             pokemon1.show();
 
               // Obtener los datos de todos los Pokémon

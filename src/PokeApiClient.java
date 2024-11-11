@@ -151,23 +151,21 @@ public class PokeApiClient {
         return namepokeballsbyGeneration;
     }
 
-//    public String[] getPokeballData(String pokeballName) throws Exception {
-//        String url = BASE_URL + "item/" + pokeballName;
-//        HttpRequest request = HttpRequest.newBuilder()
-//                .uri(URI.create(url))
-//                .build();
-//
-//        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-//        JsonObject jsonResponse = gson.fromJson(response.body(), JsonObject.class);
-//
-//        String name = jsonResponse.get("name").getAsString();
-//        String sprite = jsonResponse.getAsJsonObject("sprites").get("default").getAsString();
-//        String effect = jsonResponse.getAsJsonArray("effect_entries").get(0).getAsJsonObject().get("effect").getAsString();
-//        int price = jsonResponse.getAsJsonArray("cost").get(0).getAsJsonObject().get("cost").getAsInt();
-//
-//        return new String[] {
-//                name, sprite, effect, String.valueOf(price)
-//        };
-//    }
+    public String[] getPokeballData(String pokeballName) throws Exception {
+        String url = BASE_URL + "item/" + pokeballName;
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        JsonObject jsonResponse = gson.fromJson(response.body(), JsonObject.class);
+
+        String name = jsonResponse.get("name").getAsString();
+        String sprite = jsonResponse.getAsJsonObject("sprites").get("default").getAsString();
+        String effect = jsonResponse.get("effect_entries").getAsJsonArray().get(0).getAsJsonObject().get("short_effect").getAsString();
+        int price = jsonResponse.get("cost").getAsInt();
+
+        return new String[] { name, sprite, effect, Integer.toString(price) };
+    }
 
 }

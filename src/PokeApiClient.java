@@ -217,5 +217,4 @@ public class PokeApiClient {
         return nameBerriesbyGeneration;
     }
 
-
 }

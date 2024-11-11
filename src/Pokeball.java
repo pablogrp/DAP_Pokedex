@@ -3,4 +3,6 @@ public interface Pokeball {
     String getSprite();
     String getEffect();
     int getPrice();
+    void show();
+
 }

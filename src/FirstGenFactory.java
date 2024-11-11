@@ -24,6 +24,11 @@ public class FirstGenFactory implements PokemonFactory {
 //        };
 //    }
 
+    @Override
+    public Pokeball createPokeball(String name, String sprite, String effect, int price) {
+        return new FirstGenPokeball(name, sprite, effect, price);
+    }
+
 //    public void createPokeball(String name, String sprite, String effect, int price) {
 //    }
 

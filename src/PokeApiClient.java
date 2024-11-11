@@ -55,7 +55,7 @@ public class PokeApiClient {
         return pokemonNames;
     }
 
-    private String[] getPokemonData(String pokemonName) throws Exception {
+    public String[] getPokemonData(String pokemonName) throws Exception {
         String url = BASE_URL + "pokemon/" + pokemonName;
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))

@@ -3,4 +3,5 @@ public interface Berry {
     String getSprite();
     String getEffect();
     int getGrowthTime();
+    void show();
 }

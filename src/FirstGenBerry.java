@@ -30,4 +30,12 @@ public class FirstGenBerry implements Berry {
     public int getGrowthTime() {
         return growthTime;
     }
+
+    @Override
+    public void show() {
+        System.out.println("Berry: " + name);
+        System.out.println("Sprite: " + sprite);
+        System.out.println("Effect: " + effect);
+        System.out.println("Growth Time: " + growthTime);
+    }
 }

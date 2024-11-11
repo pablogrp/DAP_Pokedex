@@ -168,4 +168,54 @@ public class PokeApiClient {
         return new String[] { name, sprite, effect, Integer.toString(price) };
     }
 
+    // ------------------------------------ BERRY ------------------------------------
+    public List<String> getAllBerryNames(int gen) throws Exception {
+        String url = BASE_URL + "berry?limit=64";
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        JsonObject jsonResponse = gson.fromJson(response.body(), JsonObject.class);
+
+        JsonArray results = jsonResponse.getAsJsonArray("results");
+        List<String> allBerryNames = new ArrayList<>();
+
+        for (int i = 0; i < results.size(); i++) {
+            JsonObject berryObject = results.get(i).getAsJsonObject();
+            String name = berryObject.get("name").getAsString();
+            allBerryNames.add(name);
+        }
+
+        List<String> nameBerriesbyGeneration = new ArrayList<>();
+
+        for (int i = 0; i < results.size(); i++) {
+            String name = allBerryNames.get(i);
+            nameBerriesbyGeneration.add(name);
+        }
+
+//        switch (gen) {
+//            case 1:
+//                for (int i = 0; i < 5; i++) {
+//                    String name = allBerryNames.get(i);
+//                    nameBerriesbyGeneration.add(name);
+//                }
+//                break;
+//            case 5:
+//                for (int i = 0; i < 29; i++) {
+//                    String name = allBerryNames.get(i);
+//                    nameBerriesbyGeneration.add(name);
+//                }
+//                break;
+//            case 9:
+//                for (int i = 0; i < results.size(); i++) {
+//                    String name = allBerryNames.get(i);
+//                    nameBerriesbyGeneration.add(name);
+//                }
+//                break;
+//        }
+        return nameBerriesbyGeneration;
+    }
+
+
 }

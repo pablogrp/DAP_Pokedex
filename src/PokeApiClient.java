@@ -32,6 +32,7 @@ public class PokeApiClient {
 //        }
 //        return allPokemonData.toArray(new String[0][0]);
 //    }
+
     // ------------------------------------ POKEMON ------------------------------------
     public List<String> getAllPokemonNames(int gen) throws Exception {
         String url;
@@ -104,51 +105,51 @@ public class PokeApiClient {
     }
 
     // ------------------------------------ POKEBALL ------------------------------------
-//    public List<String> getAllPokeballNames(int gen) throws Exception {
-//        String url = BASE_URL+  "item?limit=2229";
-//        HttpRequest request = HttpRequest.newBuilder()
-//                .uri(URI.create(url))
-//                .build();
-//
-//        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-//        JsonObject jsonResponse = gson.fromJson(response.body(), JsonObject.class);
-//
-//        JsonArray results = jsonResponse.getAsJsonArray("results");
-//        List<String> allpokeballnames = new ArrayList<>();
-//
-//        for (int i = 0; i < results.size(); i++) {
-//            JsonObject itemObject = results.get(i).getAsJsonObject();
-//            String name = itemObject.get("name").getAsString();
-//            if (name.contains("-ball") &&
-//                name.chars().filter(ch -> ch == '-').count() == 1 &&
-//                !name.contains("-balloon")) {
-//                    allpokeballnames.add(name);
-//            }
-//        }
-//        List<String> namepokeballsbyGeneration = new ArrayList<>();
-//
-//        switch (gen) {
-//            case 1:
-//                for (int i = 0; i < 5; i++) {
-//                    String name = allpokeballnames.get(i);
-//                    namepokeballsbyGeneration.add(name);
-//                }
-//                break;
-//            case 5:
-//                for (int i = 0; i < 29; i++) {
-//                    String name = allpokeballnames.get(i);
-//                    namepokeballsbyGeneration.add(name);
-//                }
-//                break;
-//            case 9:
-//                for (int i = 0; i < results.size(); i++) {
-//                    String name = allpokeballnames.get(i);
-//                    namepokeballsbyGeneration.add(name);
-//                }
-//                break;
-//        }
-//        return namepokeballsbyGeneration;
-//    }
+    public List<String> getAllPokeballNames(int gen) throws Exception {
+        String url = BASE_URL+  "item?limit=2229";
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        JsonObject jsonResponse = gson.fromJson(response.body(), JsonObject.class);
+
+        JsonArray results = jsonResponse.getAsJsonArray("results");
+        List<String> allpokeballnames = new ArrayList<>();
+
+        for (int i = 0; i < results.size(); i++) {
+            JsonObject itemObject = results.get(i).getAsJsonObject();
+            String name = itemObject.get("name").getAsString();
+            if (name.contains("-ball") &&
+                name.chars().filter(ch -> ch == '-').count() == 1 &&
+                !name.contains("-balloon")) {
+                    allpokeballnames.add(name);
+            }
+        }
+        List<String> namepokeballsbyGeneration = new ArrayList<>();
+
+        switch (gen) {
+            case 1:
+                for (int i = 0; i < 5; i++) {
+                    String name = allpokeballnames.get(i);
+                    namepokeballsbyGeneration.add(name);
+                }
+                break;
+            case 5:
+                for (int i = 0; i < 29; i++) {
+                    String name = allpokeballnames.get(i);
+                    namepokeballsbyGeneration.add(name);
+                }
+                break;
+            case 9:
+                for (int i = 0; i < results.size(); i++) {
+                    String name = allpokeballnames.get(i);
+                    namepokeballsbyGeneration.add(name);
+                }
+                break;
+        }
+        return namepokeballsbyGeneration;
+    }
 
 //    public String[] getPokeballData(String pokeballName) throws Exception {
 //        String url = BASE_URL + "item/" + pokeballName;

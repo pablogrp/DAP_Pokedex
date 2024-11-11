@@ -26,21 +26,13 @@ public class MainTest {
             }
             String[] types = pokemonData[8].split(",");
 
-
-
-
-            // CREACION DE LA FABRICA DE POKEMON -> FirstGenFactory
-            // ESTA SERIA LA MANERA CORRECTA
             PokemonFactory firstGenFactory = new FirstGenFactory();
+            // Creamos un pokemon de la primera generación
             Pokemon pokemon1 = firstGenFactory.createPokemon(pokemonData[0], pokemonData[1], stats ,types, pokemonData[9]);
-//            Pokeball pokeball1 = firstGenFactory.createPokeball();
-//            Berry berry1 = firstGenFactory.createBerry();
-
             pokemon1.show();
 
 
-
-//            Pokeball pokeball1 = firstGenFactory.createPokeball();
+            // Obtener todos los nombres de las pokeballs de la primera generación
             List<String> firtstGenPokeballs = pokeApiClient.getAllPokeballNames(1);
             System.out.println("\nNombres de pokeballs de la primera generacion:");
             for (String pokeballName : firtstGenPokeballs) {
@@ -49,9 +41,14 @@ public class MainTest {
             System.out.println("Elige una pokeball de la lista: ");
             String pokeball = System.console().readLine();
 
+
             String[] pokeballData = pokeApiClient.getPokeballData(pokeball);
-//            Pokeball pokeball1 = new FirstGenPokeball(pokeballData[0], pokeballData[1], pokeballData[2], Integer.parseInt(pokeballData[3]));
-//            pokeball1.show();
+            // Creamos una pokeball de la primera generación
+            Pokeball pokeball1 = firstGenFactory.createPokeball(pokeballData[0], pokeballData[1], pokeballData[2], Integer.parseInt(pokeballData[3]));
+            pokeball1.show();
+
+
+
 
 
         } catch (Exception e) {

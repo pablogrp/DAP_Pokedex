@@ -4,4 +4,5 @@ public interface PokemonFactory {
 //    Berry[] createBerrys();
 
     Pokemon createPokemon(String name, String sprite, int[] stats, String[] types, String mechanic);
+    Pokeball createPokeball(String name, String sprite, String effect, int price);
 }

@@ -9,6 +9,7 @@ public class MainTest {
         PokeApiClient pokeApiClient = new PokeApiClient(client, gson);
 
         try {
+            // ------------------------------------ POKEMON ------------------------------------
             // Obtener todos los nombres de los Pokémon de la primera generación
             List<String> firstGenPokemonNames = pokeApiClient.getAllPokemonNames(1);
             System.out.println("Nombres de Pokemons de la primera generacion:");
@@ -32,6 +33,8 @@ public class MainTest {
             pokemon1.show();
 
 
+
+            // ------------------------------------ POKEBALL ------------------------------------
             // Obtener todos los nombres de las pokeballs de la primera generación
             List<String> firtstGenPokeballs = pokeApiClient.getAllPokeballNames(1);
             System.out.println("\nNombres de pokeballs de la primera generacion:");
@@ -41,11 +44,22 @@ public class MainTest {
             System.out.println("Elige una pokeball de la lista: ");
             String pokeball = System.console().readLine();
 
-
             String[] pokeballData = pokeApiClient.getPokeballData(pokeball);
             // Creamos una pokeball de la primera generación
             Pokeball pokeball1 = firstGenFactory.createPokeball(pokeballData[0], pokeballData[1], pokeballData[2], Integer.parseInt(pokeballData[3]));
             pokeball1.show();
+
+
+
+            // ------------------------------------ BERRY ------------------------------------
+            // Obtener todos los nombres de las berries de la primera generación
+            List<String> firstGenBerries = pokeApiClient.getAllBerryNames(1);
+            System.out.println("\nNombres de berries de TODAS LAS BERRYS:");
+            for (String berryName : firstGenBerries) {
+                System.out.println(berryName);
+            }
+
+
 
 
 

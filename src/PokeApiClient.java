@@ -193,7 +193,6 @@ public class PokeApiClient {
             String name = allBerryNames.get(i);
             nameBerriesbyGeneration.add(name);
         }
-
 //        switch (gen) {
 //            case 1:
 //                for (int i = 0; i < 5; i++) {

@@ -69,7 +69,6 @@ public class PokeApiClient {
             String name = pokemonObject.get("name").getAsString();
             pokemonNames.add(name);
         }
-
         return pokemonNames;
     }
 
@@ -186,35 +185,25 @@ public class PokeApiClient {
             String name = berryObject.get("name").getAsString();
             allBerryNames.add(name);
         }
-
         List<String> nameBerriesbyGeneration = new ArrayList<>();
 
-        for (int i = 0; i < results.size(); i++) {
-            String name = allBerryNames.get(i);
-            nameBerriesbyGeneration.add(name);
+        switch (gen) {
+            case 1:
+                System.out.println("No hay berries en la primera generacion");
+                break;
+            case 5:
+                for (int i = 0; i < results.size() / 2; i++) {
+                    String name = allBerryNames.get(i);
+                    nameBerriesbyGeneration.add(name);
+                }
+                break;
+            case 9:
+                for (int i = results.size() / 2; i < results.size(); i++) {
+                    String name = allBerryNames.get(i);
+                    nameBerriesbyGeneration.add(name);
+                }
+                break;
         }
-
-//        switch (gen) {
-//            case 1:
-//                for (int i = 0; i < 5; i++) {
-//                    String name = allBerryNames.get(i);
-//                    nameBerriesbyGeneration.add(name);
-//                }
-//                break;
-//            case 5:
-//                for (int i = 0; i < 29; i++) {
-//                    String name = allBerryNames.get(i);
-//                    nameBerriesbyGeneration.add(name);
-//                }
-//                break;
-//            case 9:
-//                for (int i = 0; i < results.size(); i++) {
-//                    String name = allBerryNames.get(i);
-//                    nameBerriesbyGeneration.add(name);
-//                }
-//                break;
-//        }
         return nameBerriesbyGeneration;
     }
-
 }

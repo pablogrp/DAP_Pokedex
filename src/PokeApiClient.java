@@ -9,6 +9,9 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A client for interacting with the PokeAPI.
+ */
 public class PokeApiClient {
 
     private static final String BASE_URL = "https://pokeapi.co/api/v2/";
@@ -16,24 +19,24 @@ public class PokeApiClient {
     private final HttpClient client;
     private final Gson gson;
 
+    /**
+     * Constructs a new PokeApiClient.
+     *
+     * @param client the HttpClient to use for making requests
+     * @param gson the Gson instance to use for parsing JSON responses
+     */
     public PokeApiClient(HttpClient client, Gson gson) {
         this.client = client;
         this.gson = gson;
     }
 
-//    public String[][] getAllPokemonData(int offset, int limit) throws Exception {
-//        List<String[]> allPokemonData = new ArrayList<>();
-//
-//        List<String> pokemonNames = getAllPokemonNames(offset,limit);
-//
-//        for (String pokemonName : pokemonNames) {
-//            String[] pokemonData = getPokemonData(pokemonName);
-//            allPokemonData.add(pokemonData);
-//        }
-//        return allPokemonData.toArray(new String[0][0]);
-//    }
-
-    // ------------------------------------ POKEMON ------------------------------------
+    /**
+     * Retrieves a list of all Pokemon names for a given generation.
+     *
+     * @param gen the generation of Pokemon to retrieve
+     * @return a list of Pokemon names
+     * @throws Exception if an error occurs during the request
+     */
     public List<String> getAllPokemonNames(int gen) throws Exception {
         String url;
         HttpRequest request = switch (gen) {
@@ -72,6 +75,13 @@ public class PokeApiClient {
         return pokemonNames;
     }
 
+    /**
+     * Retrieves data for a specific Pokemon.
+     *
+     * @param pokemonName the name of the Pokemon to retrieve data for
+     * @return an array of strings containing the Pokemon's data
+     * @throws Exception if an error occurs during the request
+     */
     public String[] getPokemonData(String pokemonName) throws Exception {
         String url = BASE_URL + "pokemon/" + pokemonName;
         HttpRequest request = HttpRequest.newBuilder()
@@ -103,7 +113,13 @@ public class PokeApiClient {
         };
     }
 
-    // ------------------------------------ POKEBALL ------------------------------------
+    /**
+     * Retrieves a list of all Pokeball names for a given generation.
+     *
+     * @param gen the generation of Pokeballs to retrieve
+     * @return a list of Pokeball names
+     * @throws Exception if an error occurs during the request
+     */
     public List<String> getAllPokeballNames(int gen) throws Exception {
         String url = BASE_URL+  "item?limit=2229";
         HttpRequest request = HttpRequest.newBuilder()
@@ -150,6 +166,13 @@ public class PokeApiClient {
         return namepokeballsbyGeneration;
     }
 
+    /**
+     * Retrieves data for a specific Pokeball.
+     *
+     * @param pokeballName the name of the Pokeball to retrieve data for
+     * @return an array of strings containing the Pokeball's data
+     * @throws Exception if an error occurs during the request
+     */
     public String[] getPokeballData(String pokeballName) throws Exception {
         String url = BASE_URL + "item/" + pokeballName;
         HttpRequest request = HttpRequest.newBuilder()
@@ -167,7 +190,13 @@ public class PokeApiClient {
         return new String[] { name, sprite, effect, Integer.toString(price) };
     }
 
-    // ------------------------------------ BERRY ------------------------------------
+    /**
+     * Retrieves a list of all Berry names for a given generation.
+     *
+     * @param gen the generation of Berries to retrieve
+     * @return a list of Berry names
+     * @throws Exception if an error occurs during the request
+     */
     public List<String> getAllBerryNames(int gen) throws Exception {
         String url = BASE_URL + "item?limit=725";
         HttpRequest request = HttpRequest.newBuilder()
@@ -209,6 +238,13 @@ public class PokeApiClient {
         return nameBerriesbyGeneration;
     }
 
+    /**
+     * Retrieves data for a specific Berry.
+     *
+     * @param berryName the name of the Berry to retrieve data for
+     * @return an array of strings containing the Berry's data
+     * @throws Exception if an error occurs during the request
+     */
     public String[] getBerryData(String berryName) throws Exception {
         String url = BASE_URL + "item/" + berryName;
         HttpRequest request = HttpRequest.newBuilder()

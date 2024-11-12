@@ -227,7 +227,7 @@ public class PokeApiClient {
         String name = jsonResponse.get("name").getAsString();
         String sprite = jsonResponse.getAsJsonObject("sprites").get("default").getAsString();
         String effect = jsonResponse.get("effect_entries").getAsJsonArray().get(0).getAsJsonObject().get("short_effect").getAsString();
-        int size = jsonResponse.get("id").getAsInt();
+        int size = jsonResponse.get("cost").getAsInt();
 
 
         return new String[] { name, sprite, effect, Integer.toString(size) };

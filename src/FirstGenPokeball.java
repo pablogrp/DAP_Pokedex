@@ -11,7 +11,6 @@ public class FirstGenPokeball implements Pokeball {
         this.price = price;
     }
 
-
     @Override
     public String getName() {
         return name;

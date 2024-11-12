@@ -13,7 +13,6 @@ public class FirstGenPokemon implements Pokemon {
         this.mechanic = mechanic;
     }
 
-
     @Override
     public String getName() {
         return name;

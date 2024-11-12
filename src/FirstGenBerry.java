@@ -11,7 +11,6 @@ public class FirstGenBerry implements Berry {
         this.growthTime = growthTime;
     }
 
-
     @Override
     public String getName() {
         return name;

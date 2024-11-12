@@ -34,7 +34,7 @@ public class PokeApiClient {
         return allPokemonData.toArray(new String[0][0]);
     }
 
-    private List<String> getAllPokemonNames(int offset, int limit) throws Exception {
+    public List<String> getAllPokemonNames(int offset, int limit) throws Exception {
         String url = BASE_URL + "pokemon?limit=" + limit + "&offset=" + offset;
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
@@ -55,7 +55,7 @@ public class PokeApiClient {
         return pokemonNames;
     }
 
-    private String[] getPokemonData(String pokemonName) throws Exception {
+    public String[] getPokemonData(String pokemonName) throws Exception {
         String url = BASE_URL + "pokemon/" + pokemonName;
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))

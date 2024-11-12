@@ -169,7 +169,7 @@ public class PokeApiClient {
 
     // ------------------------------------ BERRY ------------------------------------
     public List<String> getAllBerryNames(int gen) throws Exception {
-        String url = BASE_URL + "berry?limit=64";
+        String url = BASE_URL + "item?limit=725";
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .build();
@@ -181,29 +181,70 @@ public class PokeApiClient {
         List<String> allBerryNames = new ArrayList<>();
 
         for (int i = 0; i < results.size(); i++) {
-            JsonObject berryObject = results.get(i).getAsJsonObject();
-            String name = berryObject.get("name").getAsString();
-            allBerryNames.add(name);
+            JsonObject itemObject = results.get(i).getAsJsonObject();
+            String name = itemObject.get("name").getAsString();
+            if (name.contains("-berry")) {
+                allBerryNames.add(name);
+            }
         }
         List<String> nameBerriesbyGeneration = new ArrayList<>();
+//        System.out.println(results.size());
+//
+//        for (int i = 0; i < results.size(); i++) {
+//            String name = allBerryNames.get(i);
+//            nameBerriesbyGeneration.add(name);
+//        }
 
         switch (gen) {
             case 1:
                 System.out.println("No hay berries en la primera generacion");
                 break;
             case 5:
-                for (int i = 0; i < results.size() / 2; i++) {
+                for (int i = 0; i < 64; i++) {
                     String name = allBerryNames.get(i);
                     nameBerriesbyGeneration.add(name);
                 }
                 break;
             case 9:
-                for (int i = results.size() / 2; i < results.size(); i++) {
+                for (int i = 0; i < 67; i++) {
                     String name = allBerryNames.get(i);
                     nameBerriesbyGeneration.add(name);
                 }
                 break;
         }
         return nameBerriesbyGeneration;
+    }
+
+    public String[] getBerryData(String berryName) throws Exception {
+        String url = BASE_URL + "item/" + berryName;
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        JsonObject jsonResponse = gson.fromJson(response.body(), JsonObject.class);
+
+        String name = jsonResponse.get("name").getAsString();
+        String sprite = jsonResponse.getAsJsonObject("sprites").get("default").getAsString();
+        String effect = jsonResponse.get("effect_entries").getAsJsonArray().get(0).getAsJsonObject().get("short_effect").getAsString();
+        int size = jsonResponse.get("id").getAsInt();
+
+
+        return new String[] { name, sprite, effect, Integer.toString(size) };
+
+//        String url = BASE_URL + "item/" + pokeballName;
+//        HttpRequest request = HttpRequest.newBuilder()
+//                .uri(URI.create(url))
+//                .build();
+//
+//        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+//        JsonObject jsonResponse = gson.fromJson(response.body(), JsonObject.class);
+//
+//        String name = jsonResponse.get("name").getAsString();
+//        String sprite = jsonResponse.getAsJsonObject("sprites").get("default").getAsString();
+//        String effect = jsonResponse.get("effect_entries").getAsJsonArray().get(0).getAsJsonObject().get("short_effect").getAsString();
+//        int price = jsonResponse.get("cost").getAsInt();
+//
+//        return new String[] { name, sprite, effect, Integer.toString(price) };
     }
 }

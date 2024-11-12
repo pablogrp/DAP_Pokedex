@@ -1,5 +1,4 @@
 public class FirstGenFactory implements PokemonFactory {
-
     @Override
     public Pokemon createPokemon(String name, String sprite, int[] stats, String[] types, String mechanic) {
         return new FirstGenPokemon(name, sprite, stats, types, mechanic);

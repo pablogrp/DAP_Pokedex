@@ -4,4 +4,5 @@ public interface Berry {
     String getEffect();
     int getGrowthTime();
     void show();
+
 }

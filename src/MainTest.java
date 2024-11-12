@@ -60,7 +60,6 @@ public class MainTest {
             }
             System.out.println("Elige una berry de la lista: ");
 
-
         } catch (Exception e) {
             e.printStackTrace();
         }

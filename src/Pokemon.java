@@ -5,5 +5,4 @@ public interface Pokemon {
     String[] getTypes();
     String getMechanic();
     void show();
-
 }

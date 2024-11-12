@@ -34,7 +34,7 @@ public class PokeApiClient {
 //    }
 
     // ------------------------------------ POKEMON ------------------------------------
-    public List<String> getAllPokemonNames(int gen) throws Exception {
+    private List<String> getAllPokemonNames(int gen) throws Exception {
         String url;
         HttpRequest request = switch (gen) {
             case 1 -> {
@@ -73,7 +73,7 @@ public class PokeApiClient {
         return pokemonNames;
     }
 
-    public String[] getPokemonData(String pokemonName) throws Exception {
+    private String[] getPokemonData(String pokemonName) throws Exception {
         String url = BASE_URL + "pokemon/" + pokemonName;
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))

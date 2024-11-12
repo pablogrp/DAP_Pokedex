@@ -104,6 +104,7 @@ public class PokeApiClient {
         };
     }
 
+
     // ------------------------------------ POKEBALL ------------------------------------
     public List<String> getAllPokeballNames(int gen) throws Exception {
         String url = BASE_URL+  "item?limit=2229";

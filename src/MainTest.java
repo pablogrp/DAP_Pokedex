@@ -53,12 +53,19 @@ public class MainTest {
 
             // ------------------------------------ BERRY ------------------------------------
             // Obtener todos los nombres de las berries de la primera generación
-            List<String> firstGenBerries = pokeApiClient.getAllBerryNames(1);
+            List<String> firstGenBerries = pokeApiClient.getAllBerryNames(5);
             System.out.println("\nNombres de berries de TODAS LAS BERRYS:");
             for (String berryName : firstGenBerries) {
                 System.out.println(berryName);
             }
             System.out.println("Elige una berry de la lista: ");
+            String berry = System.console().readLine();
+
+            String[] berryData = pokeApiClient.getBerryData(berry);
+            // Creamos una berry de la primera generación
+            Berry berry1 = firstGenFactory.createBerry(berryData[0], berryData[1], berryData[2], Integer.parseInt(berryData[3]));
+            berry1.show();
+
 
         } catch (Exception e) {
             e.printStackTrace();

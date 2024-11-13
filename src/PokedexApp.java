@@ -22,6 +22,7 @@ public class PokedexApp extends JFrame {
     private JLabel berrySpriteLabel;
     private JLabel pokeballSpriteLabel;
     private PokemonFactory pokemonFactory;
+    private int genSelected;
 
     public PokedexApp(PokeApiClient pokeApiClient) {
         this.pokeApiClient = pokeApiClient;
@@ -38,9 +39,7 @@ public class PokedexApp extends JFrame {
 
         // Dropdown para generaciones
         generationDropdown = new JComboBox<>(new String[]{
-                "Generation 1", "Generation 2", "Generation 3",
-                "Generation 4", "Generation 5", "Generation 6",
-                "Generation 7", "Generation 8", "Generation 9"});
+                "Generation 1", "Generation 5", "Generation 9"});
         generationDropdown.addActionListener(new GenerationSelectionListener());
         topPanel.add(new JLabel("Select Generation:"));
         topPanel.add(generationDropdown);
@@ -107,32 +106,34 @@ public class PokedexApp extends JFrame {
     private class GenerationSelectionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            int generation = generationDropdown.getSelectedIndex() + 1;
-            switch (generationDropdown.getSelectedIndex() + 1) {
-                case 1:
+            switch (generationDropdown.getSelectedIndex()) {
+                case 0:
                     pokemonFactory = new FirstGenFactory();
+                    genSelected = 1;
                     break;
-                case 5:
+                case 1:
                     pokemonFactory = new FifthGenFactory();
+                    genSelected = 5;
                     break;
-                case 9:
+                case 2:
                     pokemonFactory = new NinthGenFactory();
+                    genSelected = 9;
                     break;
             }
             try {
-                List<String> pokemonNames = pokeApiClient.getAllPokemonNames(generation);
+                List<String> pokemonNames = pokeApiClient.getAllPokemonNames(genSelected);
                 pokemonDropdown.removeAllItems();
                 for (String name : pokemonNames) {
                     pokemonDropdown.addItem(name);
                 }
 
-                List<String> berriesNames = pokeApiClient.getAllBerryNames(generation);
+                List<String> berriesNames = pokeApiClient.getAllBerryNames(genSelected);
                 berryDropdown.removeAllItems();
                 for (String name : berriesNames) {
                     berryDropdown.addItem(name);
                 }
 
-                List<String> pokeballsNames = pokeApiClient.getAllPokeballNames(generation);
+                List<String> pokeballsNames = pokeApiClient.getAllPokeballNames(genSelected);
                 pokeballDropdown.removeAllItems();
                 for (String name : pokeballsNames) {
                     pokeballDropdown.addItem(name);
@@ -250,7 +251,6 @@ public class PokedexApp extends JFrame {
             Image scaledImage = image.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
             label.setIcon(new ImageIcon(scaledImage));
         } catch (Exception e) {
-            label.setText("No image available");
             e.printStackTrace();
         }
     }

@@ -92,7 +92,11 @@ public class PokeApiClient {
         JsonObject jsonResponse = gson.fromJson(response.body(), JsonObject.class);
 
         String name = jsonResponse.get("name").getAsString();
-        String sprite = jsonResponse.getAsJsonObject("sprites").get("front_default").getAsString();
+        String sprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"; // URL por defecto para el sprite
+        JsonObject sprites = jsonResponse.getAsJsonObject("sprites");
+        if (sprites != null && sprites.has("front_default") && !sprites.get("front_default").isJsonNull()) {
+            sprite = sprites.get("front_default").getAsString();
+        }
 
         JsonArray typesArray = jsonResponse.getAsJsonArray("types");
         StringBuilder typesBuilder = new StringBuilder();
@@ -180,8 +184,20 @@ public class PokeApiClient {
         JsonObject jsonResponse = gson.fromJson(response.body(), JsonObject.class);
 
         String name = jsonResponse.get("name").getAsString();
-        String sprite = jsonResponse.getAsJsonObject("sprites").get("default").getAsString();
-        String effect = jsonResponse.get("effect_entries").getAsJsonArray().get(0).getAsJsonObject().get("short_effect").getAsString();
+        String sprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"; // URL por defecto para el sprite
+        JsonObject sprites = jsonResponse.getAsJsonObject("sprites");
+        if (sprites != null && sprites.has("default") && !sprites.get("default").isJsonNull()) {
+            sprite = sprites.get("default").getAsString();
+        }
+        // Comprobación de 'effect_entries' y 'short_effect'
+        String effect = "No effect description available"; // Valor por defecto
+        JsonArray effectEntries = jsonResponse.getAsJsonArray("effect_entries");
+        if (effectEntries != null && !effectEntries.isEmpty()) {
+            JsonObject firstEffectEntry = effectEntries.get(0).getAsJsonObject();
+            if (firstEffectEntry.has("short_effect") && !firstEffectEntry.get("short_effect").isJsonNull()) {
+                effect = firstEffectEntry.get("short_effect").getAsString();
+            }
+        }
         int price = jsonResponse.get("cost").getAsInt();
 
         return new String[] { name, sprite, effect, Integer.toString(price) };
@@ -252,7 +268,11 @@ public class PokeApiClient {
         JsonObject jsonResponse = gson.fromJson(response.body(), JsonObject.class);
 
         String name = jsonResponse.get("name").getAsString();
-        String sprite = jsonResponse.getAsJsonObject("sprites").get("default").getAsString();
+        String sprite = BASE_URL + "pokemon/ditto"; // URL por defecto para el sprite
+        JsonObject sprites = jsonResponse.getAsJsonObject("sprites");
+        if (sprites != null && sprites.has("default") && !sprites.get("default").isJsonNull()) {
+            sprite = sprites.get("default").getAsString();
+        }
         String effect = jsonResponse.get("effect_entries").getAsJsonArray().get(0).getAsJsonObject().get("short_effect").getAsString();
         int size = jsonResponse.get("cost").getAsInt();
 

@@ -13,4 +13,5 @@ public class NinthGenFactory implements PokemonFactory{
     public Berry createBerry(String name, String sprite, String effect, int growthTime) {
         return new NinthGenBerry(name, sprite, effect, growthTime);
     }
+
 }

@@ -14,7 +14,6 @@ public class NinthGenPokemon implements Pokemon{
         this.mechanic = mechanic;
     }
 
-
     @Override
     public String getName() {
         return this.name;

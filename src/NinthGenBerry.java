@@ -1,22 +1,42 @@
 public class NinthGenBerry implements Berry {
+    private String name;
+    private String sprite;
+    private String effect;
+    private int growthTime;
+
+    public NinthGenBerry(String name, String sprite, String effect, int growthTime) {
+        this.name = name;
+        this.sprite = sprite;
+        this.effect = effect;
+        this.growthTime = growthTime;
+    }
+
 
     @Override
     public String getName() {
-        return "";
+        return name;
     }
 
     @Override
     public String getSprite() {
-        return "";
+        return sprite;
     }
 
     @Override
     public String getEffect() {
-        return "";
+        return effect;
     }
 
     @Override
     public int getGrowthTime() {
-        return 0;
+        return growthTime;
+    }
+
+    @Override
+    public void show() {
+        System.out.println("Berry: " + name);
+        System.out.println("Sprite: " + sprite);
+        System.out.println("Effect: " + effect);
+        System.out.println("Growth Time: " + growthTime);
     }
 }

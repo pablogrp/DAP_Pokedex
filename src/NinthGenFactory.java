@@ -1,16 +1,16 @@
 public class NinthGenFactory implements PokemonFactory{
     @Override
-    public Pokemon[] createPokemons() {
-        return new Pokemon[0];
+    public Pokemon createPokemon(String name, String sprite, int[] stats, String[] types, String mechanic) {
+        return new NinthGenPokemon(name, sprite, stats, types, mechanic);
     }
 
     @Override
-    public Pokeball[] createPokeballs() {
-        return new Pokeball[0];
+    public Pokeball createPokeball(String name, String sprite, String effect, int price) {
+        return new NinthGenPokeball(name, sprite, effect, price);
     }
 
     @Override
-    public Berry[] createBerrys() {
-        return new Berry[0];
+    public Berry createBerry(String name, String sprite, String effect, int growthTime) {
+        return new NinthGenBerry(name, sprite, effect, growthTime);
     }
 }

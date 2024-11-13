@@ -1,7 +1,7 @@
 public class FifthGenFactory implements PokemonFactory {
     @Override
-    public Pokemon createPokemon(String name, String sprite, int[] stats, String[] types, String mechanic) {
-        return new FifthGenPokemon(name, sprite, stats, types, mechanic);
+    public Pokemon createPokemon(String name, String sprite, int[] stats, String[] types) {
+        return new FifthGenPokemon(name, sprite, stats, types);
     }
 
 

@@ -29,7 +29,7 @@ public class MainTest {
 
             PokemonFactory firstGenFactory = new FirstGenFactory();
             // Creamos un pokemon de la primera generación
-            Pokemon pokemon1 = firstGenFactory.createPokemon(pokemonData[0], pokemonData[1], stats ,types, pokemonData[9]);
+            Pokemon pokemon1 = firstGenFactory.createPokemon(pokemonData[0], pokemonData[1], stats ,types);
             pokemon1.show();
 
 

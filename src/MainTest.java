@@ -1,6 +1,5 @@
 import com.google.gson.Gson;
 import java.net.http.HttpClient;
-import java.util.List;
 
 public class MainTest {
     public static void main(String[] args) {
@@ -8,6 +7,10 @@ public class MainTest {
         Gson gson = new Gson();
         PokeApiClient pokeApiClient = new PokeApiClient(client, gson);
 
+        PokedexApp px = new PokedexApp(pokeApiClient);
+        px.setVisible(true);
+
+        /*
         try {
             // ------------------------------------ POKEMON ------------------------------------
             // Obtener todos los nombres de los Pokémon de la primera generación
@@ -70,5 +73,6 @@ public class MainTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+         */
     }
 }

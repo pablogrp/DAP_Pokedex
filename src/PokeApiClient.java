@@ -154,7 +154,7 @@ public class PokeApiClient {
                 }
                 break;
             case 9:
-                for (int i = 0; i < results.size(); i++) {
+                for (int i = 0; i < 47; i++) {
                     String name = allpokeballnames.get(i);
                     namepokeballsbyGeneration.add(name);
                 }

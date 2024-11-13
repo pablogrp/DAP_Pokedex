@@ -5,12 +5,12 @@ public class FirstGenPokemon implements Pokemon {
     private String[] types;
     private String mechanic;
 
-    public FirstGenPokemon(String name, String sprite, int[] stats, String[] types, String mechanic) {
+    public FirstGenPokemon(String name, String sprite, int[] stats, String[] types) {
         this.name = name;
         this.sprite = sprite;
         this.stats = stats;
         this.types = types;
-        this.mechanic = mechanic;
+        this.mechanic = "None";
     }
 
 

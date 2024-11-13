@@ -1,19 +1,17 @@
-public class FifthGenPokemon implements Pokemon{
-
+public class FifthGenPokemon implements Pokemon {
     private String name;
     private String sprite;
     private int[] stats;
     private String[] types;
     private String mechanic;
 
-    public FifthGenPokemon(String name, String sprite, int[] stats, String[] types, String mechanic) {
+    public FifthGenPokemon(String name, String sprite, int[] stats, String[] types) {
         this.name = name;
         this.sprite = sprite;
         this.stats = stats;
         this.types = types;
         this.mechanic = "I can Mega Evolve!";
     }
-
 
     @Override
     public String getName() {

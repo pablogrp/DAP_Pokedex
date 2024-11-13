@@ -6,12 +6,12 @@ public class NinthGenPokemon implements Pokemon{
     private String[] types;
     private String mechanic;
 
-    public NinthGenPokemon(String name, String sprite, int[] stats, String[] types, String mechanic) {
+    public NinthGenPokemon(String name, String sprite, int[] stats, String[] types) {
         this.name = name;
         this.sprite = sprite;
         this.stats = stats;
         this.types = types;
-        this.mechanic = mechanic;
+        this.mechanic = "I can Terracristalize!";
     }
 
     @Override

@@ -107,10 +107,7 @@ public class PokeApiClient {
         for (int i = 0; i < 6; i++) {
             stats[i] = statsArray.get(i).getAsJsonObject().get("base_stat").getAsString();
         }
-        String mechanic = "None";
-        return new String[] {
-                name, sprite, stats[0], stats[1], stats[2], stats[3], stats[4], stats[5], typesBuilder.toString(), mechanic
-        };
+        return new String[] {name, sprite, stats[0], stats[1], stats[2], stats[3], stats[4], stats[5], typesBuilder.toString()};
     }
 
     /**

@@ -1,3 +1,5 @@
+package pokedex.datastructure.products;
+
 public class NinthGenPokemon implements Pokemon{
 
     private String name;

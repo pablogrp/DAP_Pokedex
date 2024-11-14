@@ -1,15 +1,18 @@
-public class NinthGenPokeball implements Pokeball{
+package pokedex.datastructure.products;
+
+public class FifthGenBerry implements Berry {
     private String name;
     private String sprite;
     private String effect;
-    private int price;
+    private int growthTime;
 
-    public NinthGenPokeball(String name, String sprite, String effect, int price) {
+    public FifthGenBerry(String name, String sprite, String effect, int growthTime) {
         this.name = name;
         this.sprite = sprite;
         this.effect = effect;
-        this.price = price;
+        this.growthTime = growthTime;
     }
+
 
     @Override
     public String getName() {
@@ -27,15 +30,15 @@ public class NinthGenPokeball implements Pokeball{
     }
 
     @Override
-    public int getPrice() {
-        return price;
+    public int getGrowthTime() {
+        return growthTime;
     }
 
     @Override
     public void show() {
-        System.out.println("Nombre: " + name);
+        System.out.println("pokedex.datastructure.products.Berry: " + name);
         System.out.println("Sprite: " + sprite);
-        System.out.println("Efecto: " + effect);
-        System.out.println("Precio: " + price);
+        System.out.println("Effect: " + effect);
+        System.out.println("Growth Time: " + growthTime);
     }
 }

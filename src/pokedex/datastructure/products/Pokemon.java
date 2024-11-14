@@ -1,3 +1,5 @@
+package pokedex.datastructure.products;
+
 public interface Pokemon {
     String getName();
     String getSprite();

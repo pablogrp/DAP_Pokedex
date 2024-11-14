@@ -1,3 +1,7 @@
+package pokedex.datastructure.factories;
+
+import pokedex.datastructure.products.*;
+
 public class NinthGenFactory implements PokemonFactory{
     @Override
     public Pokemon createPokemon(String name, String sprite, int[] stats, String[] types) {

@@ -1,3 +1,14 @@
+package pokedex.app;
+
+import pokedex.api.PokeApiClient;
+import pokedex.datastructure.factories.FifthGenFactory;
+import pokedex.datastructure.factories.FirstGenFactory;
+import pokedex.datastructure.factories.NinthGenFactory;
+import pokedex.datastructure.factories.PokemonFactory;
+import pokedex.datastructure.products.Berry;
+import pokedex.datastructure.products.Pokeball;
+import pokedex.datastructure.products.Pokemon;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -28,7 +39,7 @@ public class PokedexApp extends JFrame {
         this.pokeApiClient = pokeApiClient;
         setTitle("Pokedex");
         setSize(700, 600);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cambiado para permitir cerrar instancias de comparación sin cerrar toda la app
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cambiado para permitir cerrar instancias de comparación sin cerrar toda la pokedex.app
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
         initializeUI();
@@ -47,13 +58,13 @@ public class PokedexApp extends JFrame {
         // Dropdown para pokemons
         pokemonDropdown = new JComboBox<>();
         pokemonDropdown.addActionListener(new PokemonSelectionListener());
-        topPanel.add(new JLabel("Select Pokemon:"));
+        topPanel.add(new JLabel("Select pokedex.datastructure.products.Pokemon:"));
         topPanel.add(pokemonDropdown);
 
         // Dropdown para bayas
         berryDropdown = new JComboBox<>();
         berryDropdown.addActionListener(new BerrySelectionListener());
-        topPanel.add(new JLabel("Select Berry:"));
+        topPanel.add(new JLabel("Select pokedex.datastructure.products.Berry:"));
         topPanel.add(berryDropdown);
 
         // Dropdown para Poké Balls
@@ -98,7 +109,7 @@ public class PokedexApp extends JFrame {
     private class CompareButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            PokedexApp comparisonWindow = new PokedexApp(pokeApiClient); // Crear nueva instancia de PokedexApp
+            PokedexApp comparisonWindow = new PokedexApp(pokeApiClient); // Crear nueva instancia de pokedex.app.PokedexApp
             comparisonWindow.setVisible(true); // Mostrar la nueva ventana
         }
     }

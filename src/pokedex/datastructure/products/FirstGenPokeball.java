@@ -1,14 +1,16 @@
-public class FirstGenBerry implements Berry {
+package pokedex.datastructure.products;
+
+public class FirstGenPokeball implements Pokeball {
     private String name;
     private String sprite;
     private String effect;
-    private int growthTime;
+    private int price;
 
-    public FirstGenBerry(String name, String sprite, String effect, int growthTime) {
+    public FirstGenPokeball(String name, String sprite, String effect, int price) {
         this.name = name;
         this.sprite = sprite;
         this.effect = effect;
-        this.growthTime = growthTime;
+        this.price = price;
     }
 
 
@@ -28,15 +30,15 @@ public class FirstGenBerry implements Berry {
     }
 
     @Override
-    public int getGrowthTime() {
-        return growthTime;
+    public int getPrice() {
+        return price;
     }
 
     @Override
     public void show() {
-        System.out.println("Berry: " + name);
+        System.out.println("Nombre: " + name);
         System.out.println("Sprite: " + sprite);
-        System.out.println("Effect: " + effect);
-        System.out.println("Growth Time: " + growthTime);
+        System.out.println("Efecto: " + effect);
+        System.out.println("Precio: " + price);
     }
 }

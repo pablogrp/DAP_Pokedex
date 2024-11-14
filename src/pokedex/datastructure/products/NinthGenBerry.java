@@ -1,3 +1,5 @@
+package pokedex.datastructure.products;
+
 public class NinthGenBerry implements Berry {
     private String name;
     private String sprite;
@@ -33,7 +35,7 @@ public class NinthGenBerry implements Berry {
 
     @Override
     public void show() {
-        System.out.println("Berry: " + name);
+        System.out.println("pokedex.datastructure.products.Berry: " + name);
         System.out.println("Sprite: " + sprite);
         System.out.println("Effect: " + effect);
         System.out.println("Growth Time: " + growthTime);

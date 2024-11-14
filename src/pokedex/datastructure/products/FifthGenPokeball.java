@@ -1,10 +1,12 @@
-public class FirstGenPokeball implements Pokeball {
+package pokedex.datastructure.products;
+
+public class FifthGenPokeball implements Pokeball {
     private String name;
     private String sprite;
     private String effect;
     private int price;
 
-    public FirstGenPokeball(String name, String sprite, String effect, int price) {
+    public FifthGenPokeball(String name, String sprite, String effect, int price) {
         this.name = name;
         this.sprite = sprite;
         this.effect = effect;
@@ -31,6 +33,7 @@ public class FirstGenPokeball implements Pokeball {
     public int getPrice() {
         return price;
     }
+
 
     @Override
     public void show() {

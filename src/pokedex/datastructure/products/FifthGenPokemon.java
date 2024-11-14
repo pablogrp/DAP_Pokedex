@@ -1,42 +1,43 @@
-public class FirstGenPokemon implements Pokemon {
+package pokedex.datastructure.products;
+
+public class FifthGenPokemon implements Pokemon {
     private String name;
     private String sprite;
     private int[] stats;
     private String[] types;
     private String mechanic;
 
-    public FirstGenPokemon(String name, String sprite, int[] stats, String[] types) {
+    public FifthGenPokemon(String name, String sprite, int[] stats, String[] types) {
         this.name = name;
         this.sprite = sprite;
         this.stats = stats;
         this.types = types;
-        this.mechanic = "None";
+        this.mechanic = "I can Mega Evolve!";
     }
-
 
     @Override
     public String getName() {
-        return name;
+        return this.name;
     }
 
     @Override
     public String getSprite() {
-        return sprite;
+        return this.sprite;
     }
 
     @Override
     public int[] getStats() {
-        return stats;
+        return this.stats;
     }
 
     @Override
     public String[] getTypes() {
-        return types;
+        return this.types;
     }
 
     @Override
     public String getMechanic() {
-        return mechanic;
+        return this.mechanic;
     }
 
     @Override
